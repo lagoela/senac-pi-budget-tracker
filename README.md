@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Setando o ambiente virtual
 
-## Getting Started
+- Selecione a pasta que deseja fazer o pull da Branch
 
-First, run the development server:
-
+- Depois, adicione a branch no seu remote:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git remote add origin https://github.com/lagoela/senac-pi-budget-tracker.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Após isso, faça um pull da branch dev or main
+**Lembre-se de publicar alterações apenas na branch dev**
+```bash
+git pull origin dev
+```
+- Pronto, você ja terá o código mais recente.
+- Sempre que for trabalhar no código, faça um fetch:
+```bash
+git fetch
+```
+## Trocando de branches
+### Para trocar entre as branches, é muito simples:
+```bash
+git checkout dev
+# or
+git checkout main
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Instalando dependencias
+Ao baixar localmente o repositório em sua maquina, utilize:
+```bash
+npm install
+```
+**Verifique se seu terminal está no mesmo local que o repositório**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Executando o servidor
+Para executar o servidor, basta utilizar o comando:
+```bash
+npm run dev
+```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Abra o endereço [http://localhost:3000](http://localhost:3000) no seu navegador para entrar no projeto.
