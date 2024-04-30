@@ -76,7 +76,7 @@ function MobileNavbar() {
                   key={item.link}
                   link={item.link}
                   label={item.label}
-                  onClick={() => setIsOpen((prev) => !prev)}
+                  clickCallback={() => setIsOpen((prev) => !prev)}
                 />
               ))}
             </div>
@@ -96,11 +96,11 @@ function MobileNavbar() {
 function NavbarItem({
   link,
   label,
-  onClick: clickCallback,
+  clickCallback,
 }: {
   link: string;
   label: string;
-  onClick?: () => void;
+  clickCallback?: () => void;
 }) {
   const pathname = usePathname();
   const isActive = pathname === link;
