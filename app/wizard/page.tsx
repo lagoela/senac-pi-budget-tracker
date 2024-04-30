@@ -42,7 +42,7 @@ async function page() {
         <Separator />
         <Button className='w-full' asChild>
             <Link href='/'>
-                I&apos;m done for now
+                I&apos;m done for now!
             </Link>
         </Button>
         <div className="mt-8">
