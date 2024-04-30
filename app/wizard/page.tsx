@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React from 'react'
 import Logo from "../components/Logo";
+import { CurrencyComboBox } from '../components/CurrencyComboBox';
 
 async function page() {
     const user = await currentUser();
@@ -35,7 +36,7 @@ async function page() {
                 </CardDescription>
             </CardHeader>
             <CardContent>
-                
+                <CurrencyComboBox />
             </CardContent>
         </Card>
         <Separator />
