@@ -8,6 +8,7 @@ git remote add origin https://github.com/lagoela/senac-pi-budget-tracker.git
 ```
 
 Após isso, faça um pull da branch dev or main
+
 **Lembre-se de publicar alterações apenas na branch dev**
 ```bash
 git pull origin dev
