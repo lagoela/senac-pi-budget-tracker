@@ -47,16 +47,16 @@ function CreateTransactionDialog({ trigger, type }: Props) {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            Create a new
+            Crie uma nova transação de
             <span
               className={cn(
                 "m-1",
-                type === "income" ? "text-emerald-500" : "text-red-500"
+                type === "renda" ? "text-emerald-500" : "text-red-500"
               )}
             >
               {type}
             </span>
-            transaction
+
           </DialogTitle>
         </DialogHeader>
         <Form {...form}>
@@ -66,12 +66,12 @@ function CreateTransactionDialog({ trigger, type }: Props) {
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Description</FormLabel>
+                  <FormLabel>Descrição</FormLabel>
                   <FormControl>
                     <Input defaultValue={""} {...field} />
                   </FormControl>
                   <FormDescription>
-                    Transaction Description (optional)
+                    Descrição da transação (Opcional)
                   </FormDescription>
                 </FormItem>
               )}
@@ -81,11 +81,11 @@ function CreateTransactionDialog({ trigger, type }: Props) {
               name="amount"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Amount</FormLabel>
+                  <FormLabel>Valor</FormLabel>
                   <FormControl>
                     <Input defaultValue={0} type="number" {...field} />
                   </FormControl>
-                  <FormDescription>Transaction Amount</FormDescription>
+                  <FormDescription>Valor da transação</FormDescription>
                 </FormItem>
               )}
             />
@@ -96,11 +96,11 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                 name="category"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Category</FormLabel>
+                    <FormLabel>Categoria</FormLabel>
                     <FormControl>
                       <CategoryPicker type={type}></CategoryPicker>
                     </FormControl>
-                    <FormDescription>Select a category for this transaction</FormDescription>
+                    <FormDescription>Selecione uma categoria para essa transação</FormDescription>
                   </FormItem>
                 )}
               />

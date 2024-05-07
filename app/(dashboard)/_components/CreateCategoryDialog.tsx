@@ -30,11 +30,15 @@ import {
   CreateCategorySchemaType,
 } from "@/schema/categories";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CircleOff, Divide, PlusSquare } from "lucide-react";
-import { useState } from "react";
+import { CircleOff, Loader2, PlusSquare } from "lucide-react";
+import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { CreateCategory } from "../_actions/categories";
+import { Category } from "@prisma/client";
+import { toast } from "sonner";
 
 interface Props {
   type: TransactionType;
@@ -49,6 +53,46 @@ function CreateCategoryDialog({ type }: Props) {
     },
   });
 
+  const queryClient = useQueryClient();
+
+  const { mutate, isPending } = useMutation({
+    mutationFn: CreateCategory,
+    onSuccess: async (data: Category) => {
+      form.reset({
+        name: "",
+        icon: "",
+        type,
+      });
+
+      toast.success(`Category ${data.name} created successfully 🥳`, {
+        id: "create-category",
+      });
+
+      await queryClient.invalidateQueries({
+        queryKey: ["categories"],
+      });
+
+      setOpen((prev) => !prev);
+    },
+
+    onError: () => {
+      toast.error("Ocorreu um erro ao criar uma categoria...", {
+        id: "create-category",
+      });
+    },
+  });
+
+  const onSubmit: any = useCallback(
+    (values: CreateCategorySchemaType) => {
+      toast.loading("Criando categoria...", {
+        id: "create-category",
+      });
+
+      mutate(values);
+    },
+    [mutate]
+  );
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
@@ -57,17 +101,17 @@ function CreateCategoryDialog({ type }: Props) {
           className="flex border-separate items-center justify-normal rounded-none border-b px-3 py-3 text-muted-foreground"
         >
           <PlusSquare className="mr-2 h-4 w-4" />
-          Create a new category
+          Criar categoria
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            Create
+            Criar
             <span
               className={cn(
                 "m-1",
-                type === "income" ? "text-emerald-500" : "text-red-500"
+                type === "renda" ? "text-emerald-500" : "text-red-500"
               )}
             >
               {type}
@@ -79,7 +123,7 @@ function CreateCategoryDialog({ type }: Props) {
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
-          <form className="space-y-8">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
               control={form.control}
               name="name"
@@ -158,7 +202,10 @@ function CreateCategoryDialog({ type }: Props) {
               Cancel
             </Button>
           </DialogClose>
-          <Button>Save</Button>
+          <Button onClick={form.handleSubmit(onSubmit)} disabled={isPending}>
+            {!isPending && "Create"}
+            {isPending && <Loader2 className="animate-spin" />}
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

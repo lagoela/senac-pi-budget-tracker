@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Senac Tracker",
-  description: "Track your expenses and income with Senac Tracker.",
+  description: "Track your despesas and renda with Senac Tracker.",
 };
 
 export default function RootLayout({
