@@ -39,7 +39,7 @@ async function page() {
                 </Button>
               }
               type={"renda"}
-            ></CreateTransactionDialog>
+            />
             <CreateTransactionDialog
               trigger={
                 <Button
@@ -50,7 +50,7 @@ async function page() {
                 </Button>
               }
               type={"despesa"}
-            ></CreateTransactionDialog>
+            />
           </div>
         </div>
       </div>
