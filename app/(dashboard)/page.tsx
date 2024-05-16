@@ -38,7 +38,7 @@ async function page() {
                   Nova renda 💵
                 </Button>
               }
-              type={"renda"}
+              type={"income"}
             />
             <CreateTransactionDialog
               trigger={
@@ -49,7 +49,7 @@ async function page() {
                   Nova despesa 📉
                 </Button>
               }
-              type={"despesa"}
+              type={"expense"}
             />
           </div>
         </div>

@@ -63,15 +63,15 @@ export async function CreateTransaction(form: CreateTransactionSchemaType) {
         day: date.getUTCDate(),
         month: date.getUTCMonth(),
         year: date.getUTCFullYear(),
-        expense: type === "despesa" ? amount : 0,
-        income: type === "renda" ? amount : 0,
+        expense: type === "expense" ? amount : 0,
+        income: type === "income" ? amount : 0,
       },
       update: {
         expense: {
-          increment: type === "despesa" ? amount : 0,
+          increment: type === "expense" ? amount : 0,
         },
         income: {
-          increment: type === "renda" ? amount : 0,
+          increment: type === "income" ? amount : 0,
         },
       }
     }),
@@ -88,15 +88,15 @@ export async function CreateTransaction(form: CreateTransactionSchemaType) {
           userId: user.id,
           month: date.getUTCMonth(),
           year: date.getUTCFullYear(),
-          expense: type === "despesa" ? amount : 0,
-          income: type === "renda" ? amount : 0,
+          expense: type === "expense" ? amount : 0,
+          income: type === "income" ? amount : 0,
         },
         update: {
           expense: {
-            increment: type === "despesa" ? amount : 0,
+            increment: type === "expense" ? amount : 0,
           },
           income: {
-            increment: type === "renda" ? amount : 0,
+            increment: type === "income" ? amount : 0,
           },
         }
       }),

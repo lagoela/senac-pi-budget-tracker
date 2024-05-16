@@ -90,7 +90,7 @@ function StatCard({
   return (
     <Card className="flex h-24 w-full items-center gap-2 p-4">
       {icon}
-      <div className="flex flex-col justify-start">
+      <div className="flex flex-col items-start">
         <p className="text-muted-foreground">{title}</p>
         <CountUp
           preserveValue

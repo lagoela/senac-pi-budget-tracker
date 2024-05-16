@@ -48,7 +48,7 @@ async function getBalanceStats(userId: string, from: Date, to: Date) {
   });
 
   return {
-    expense: totals.find(t => t.type === "despesa")?._sum.amount || 0,
-    income: totals.find(t => t.type === "renda")?._sum.amount || 0,
+    expense: totals.find(t => t.type === "expense")?._sum.amount || 0,
+    income: totals.find(t => t.type === "income")?._sum.amount || 0,
   }
 }

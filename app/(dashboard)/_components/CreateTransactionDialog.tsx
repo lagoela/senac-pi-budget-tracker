@@ -110,7 +110,7 @@ function CreateTransactionDialog({ trigger, type }: Props) {
             <span
               className={cn(
                 "m-1",
-                type === "renda" ? "text-emerald-500" : "text-red-500"
+                type === "income" ? "text-emerald-500" : "text-red-500"
               )}
             >
               {type}
