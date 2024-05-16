@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { DateToUTCDate, GetFormatterForCurrency } from "@/lib/helpers";
 import { UserSettings } from "@prisma/client";
 import { useQuery } from "@tanstack/react-query";
-import { DollarSign, TrendingDown, TrendingUp, TrendingUpIcon } from "lucide-react";
+import { DollarSign, TrendingDown, TrendingUp, TrendingUpIcon, Wallet } from "lucide-react";
 import React, { useCallback, useMemo } from "react";
 import CountUp from "react-countup";
 
@@ -61,7 +61,7 @@ function StatsCard({ from, to, userSettings }: Props) {
           value={balance}
           title="Total"
           icon={
-            <DollarSign className="h-12 w-12 items-center rounded-lg p-2 text-emerald-500 bg-emerald-400/10" />
+            <Wallet className="h-12 w-12 items-center rounded-lg p-2 text-violet-500 bg-violet-400/10" />
           }
         />
       </SkeletonWrapper>

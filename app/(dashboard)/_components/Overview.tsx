@@ -7,6 +7,7 @@ import { differenceInDays, startOfMonth } from "date-fns";
 import React, { useState } from "react";
 import { toast } from "sonner";
 import StatsCard from "./StatsCard";
+import CategoriesStats from "./CategoriesStats";
 
 function Overview({ userSettings }: { userSettings: UserSettings }) {
   const [dateRange, setDateRange] = useState<{ from: Date; to: Date }>({
@@ -18,7 +19,7 @@ function Overview({ userSettings }: { userSettings: UserSettings }) {
     <>
       <div className="container flex flex-wrap items-end justify-between gap-2 py-6">
         <h2 className="text-3xl font-bold">Visão Geral</h2>
-        <div className="flex items-center gap-3">
+        <div className="relative flex items-center gap-3">
           <DateRangePicker
             initialDateFrom={dateRange.from}
             initialDateTo={dateRange.to}
@@ -30,21 +31,31 @@ function Overview({ userSettings }: { userSettings: UserSettings }) {
 
               if (differenceInDays(to, from) > MAX_DATE_RANGE_DAYS) {
                 toast.error(
-                  `O intervalo de datas não pode ser maior que ${MAX_DATE_RANGE_DAYS} dias`	,
+                  `O intervalo de datas não pode ser maior que ${MAX_DATE_RANGE_DAYS} dias`,
                   { id: "date-range-error" }
                 );
 
                 return;
               }
 
-              setDateRange({from, to});
+              setDateRange({ from, to });
             }}
           />
         </div>
       </div>
-      <StatsCard userSettings={userSettings}
-      from={dateRange.from}
-      to={dateRange.to} />
+      <div className="container flex w-full flex-col gap-2">
+        <StatsCard
+          userSettings={userSettings}
+          from={dateRange.from}
+          to={dateRange.to}
+        />
+
+        <CategoriesStats
+          userSettings={userSettings}
+          from={dateRange.from}
+          to={dateRange.to}
+        />
+      </div>
     </>
   );
 }
