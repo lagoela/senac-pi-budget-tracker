@@ -7,6 +7,8 @@ import { Period, TimeFrame } from "@/lib/types";
 import { UserSettings } from "@prisma/client";
 import React, { useMemo, useState } from "react";
 import HistoryPeriodSelector from "./HistoryPeriodSelector";
+import { useQuery } from "@tanstack/react-query";
+import { GetHistoryDataResponseType } from "@/app/api/history-data/route";
 
 function History({ userSettings }: { userSettings: UserSettings }) {
   const [timeframe, setTimeFrame] = useState<TimeFrame>("month");
@@ -18,6 +20,16 @@ function History({ userSettings }: { userSettings: UserSettings }) {
   const formatter = useMemo(() => {
     return GetFormatterForCurrency(userSettings.currency);
   }, [userSettings.currency]);
+
+  const historyDataQuery = useQuery<GetHistoryDataResponseType>({
+    queryKey: ["overview", "history", period, timeframe],
+    queryFn: () =>
+      fetch(
+        `/api/history-data?timeframe=${timeframe}&year=${period.year}&month=${period.month}`
+      ).then((res) => res.json()),
+  });
+
+  const dataAvailable = historyDataQuery.data && historyDataQuery.data.length > 0;
 
   return (
     <div className="container">
