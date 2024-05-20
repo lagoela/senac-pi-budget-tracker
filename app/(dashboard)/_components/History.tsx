@@ -45,7 +45,7 @@ function History({ userSettings }: { userSettings: UserSettings }) {
     historyDataQuery.data && historyDataQuery.data.length > 0;
 
   return (
-    <div className="container">
+    <div className="container pb-8">
       <h2 className="mt-12 text-3xl font-bold">Histórico</h2>
       <Card className="col-span-12 mt-2 w-full">
         <CardHeader className="gap-2">
@@ -118,7 +118,7 @@ function History({ userSettings }: { userSettings: UserSettings }) {
                       const date = new Date(year, month, day || 1);
                       if (timeframe === "year") {
 
-                        const monthStr =  date.toLocaleDateString("pt-BR", {
+                        const monthStr = date.toLocaleDateString("pt-BR", {
                           month: "long",
                         }).toString()
                         const correctMonthStr = monthStr.charAt(0).toUpperCase() + monthStr.slice(1)
