@@ -24,6 +24,7 @@ function Overview({ userSettings }: { userSettings: UserSettings }) {
             initialDateFrom={dateRange.from}
             initialDateTo={dateRange.to}
             showCompare={false}
+            locale="pt-br"
             onUpdate={(values) => {
               const { from, to } = values.range;
 
