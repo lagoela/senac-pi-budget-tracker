@@ -83,12 +83,12 @@ function YearSelector({
   return (
     <Select
       value={period.year.toString()}
-      onValueChange={(value) =>
+      onValueChange={(value) => {
         setPeriod({
           month: period.month,
           year: parseInt(value),
-        })
-      }
+        });
+      }}
     >
       <SelectTrigger className="w-[180px]">
         <SelectValue />
@@ -116,7 +116,7 @@ function MonthSelector({
       value={period.month.toString()}
       onValueChange={(value) =>
         setPeriod({
-          year: period.month,
+          year: period.year,
           month: parseInt(value),
         })
       }
@@ -131,9 +131,11 @@ function MonthSelector({
             { month: "long" }
           );
 
+          const correctMonthStr = monthStr.charAt(0).toUpperCase() + monthStr.slice(1);
+
           return (
             <SelectItem key={month} value={month.toString()}>
-              {monthStr}
+              {correctMonthStr}
             </SelectItem>
           );
         })}

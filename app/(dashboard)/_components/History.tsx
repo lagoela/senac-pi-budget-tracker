@@ -117,9 +117,14 @@ function History({ userSettings }: { userSettings: UserSettings }) {
                       const { year, month, day } = data;
                       const date = new Date(year, month, day || 1);
                       if (timeframe === "year") {
-                        return date.toLocaleDateString("pt-BR", {
+
+                        const monthStr =  date.toLocaleDateString("pt-BR", {
                           month: "long",
-                        });
+                        }).toString()
+
+                        const correctMonthStr = monthStr.charAt(0).toUpperCase() + monthStr.slice(1)
+
+                        return correctMonthStr;
                       }
                       return date.toLocaleDateString("pt-BR", {
                         day: "2-digit",
