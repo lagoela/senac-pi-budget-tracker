@@ -90,7 +90,7 @@ function CategoryList({ type }: { type: TransactionType }) {
               trigger={
                 <Button className="gap-2 text-sm">
                   <PlusSquare className="h-4 w-4" />
-                  Create category
+                  Criar categoria
                 </Button>
               }
             />
@@ -107,7 +107,7 @@ function CategoryList({ type }: { type: TransactionType }) {
                   type === "income" ? "text-emerald-500" : "text-red-500"
                 )}
               >
-                {type}
+                {type === "income" ? "renda" : "despesa"}
               </span>
             </p>
             <p className="text-sm text-muted-foreground">
