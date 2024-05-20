@@ -10,7 +10,7 @@ CREATE TABLE "Category" (
     "name" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
     "icon" TEXT NOT NULL,
-    "type" TEXT NOT NULL DEFAULT 'income'
+    "type" TEXT NOT NULL DEFAULT 'renda'
 );
 
 -- CreateTable
@@ -22,7 +22,7 @@ CREATE TABLE "Transaction" (
     "description" TEXT NOT NULL,
     "date" DATETIME NOT NULL,
     "userId" TEXT NOT NULL,
-    "type" TEXT NOT NULL DEFAULT 'income',
+    "type" TEXT NOT NULL DEFAULT 'renda',
     "category" TEXT NOT NULL,
     "categoryIcon" TEXT NOT NULL
 );
@@ -33,8 +33,8 @@ CREATE TABLE "MonthHistory" (
     "day" INTEGER NOT NULL,
     "month" INTEGER NOT NULL,
     "year" INTEGER NOT NULL,
-    "income" REAL NOT NULL,
-    "expense" REAL NOT NULL,
+    "renda" REAL NOT NULL,
+    "despesa" REAL NOT NULL,
 
     PRIMARY KEY ("day", "month", "year", "userId")
 );
@@ -44,8 +44,8 @@ CREATE TABLE "YearHistory" (
     "userId" TEXT NOT NULL,
     "month" INTEGER NOT NULL,
     "year" INTEGER NOT NULL,
-    "income" REAL NOT NULL,
-    "expense" REAL NOT NULL,
+    "renda" REAL NOT NULL,
+    "despesa" REAL NOT NULL,
 
     PRIMARY KEY ("month", "year", "userId")
 );

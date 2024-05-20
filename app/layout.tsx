@@ -8,8 +8,8 @@ import { Toaster } from "@/components/ui/sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Budgety",
-  description: "Track your expenses and income with Budgety.",
+  title: "Senac Tracker",
+  description: "Track your despesas and renda with Senac Tracker.",
 };
 
 export default function RootLayout({

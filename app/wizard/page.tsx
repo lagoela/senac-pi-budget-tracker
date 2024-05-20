@@ -17,22 +17,22 @@ async function page() {
     return (
     <div className="container flex max-w-2xl flex-col items-center justify-between gap-4">
         <div>
-            <h1 className="text-center text-3xl">Welcome, <span className='ml-2 font-bold'>{user.firstName}!</span> 👋</h1>
+            <h1 className="text-center text-3xl">Bem-vindo, <span className='ml-2 font-bold'>{user.firstName}!</span> 👋</h1>
             <h2 className='mt-4 text-center text-muted-foreground '>
-                Let&apos;s get started by selecting your currency of choice
+                Vamos decidir qual a sua moeda de preferencia!
             </h2>
             <h3 className='mt-3 text-center text-sm text-muted-foreground'>
-                You can change this later.
+                Você pode alterar isso futuramente.
             </h3>
         </div>
         <Separator />
         <Card className='w-full'>
             <CardHeader>
                 <CardTitle>
-                    Currency
+                    Moeda
                 </CardTitle>
                 <CardDescription>
-                    Set your default currency for transactions
+                    Selecione a moeda padrão para suas transações.
                 </CardDescription>
             </CardHeader>
             <CardContent>
@@ -42,7 +42,7 @@ async function page() {
         <Separator />
         <Button className='w-full' asChild>
             <Link href='/'>
-                I&apos;m done for now!
+                Estou pronto! 🚀
             </Link>
         </Button>
         <div className="mt-8">

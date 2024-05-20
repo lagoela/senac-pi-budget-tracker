@@ -20,9 +20,9 @@ function Navbar() {
 }
 
 const items = [
-  { label: "Dashboard", link: "/" },
-  { label: "Transactions", link: "/transactions" },
-  { label: "Manage", link: "/manage" },
+  { label: "Painel", link: "/" },
+  // { label: "Transações", link: "/transactions" },
+  { label: "Configurações", link: "/manage" },
 ];
 
 function DekstopNavbar() {

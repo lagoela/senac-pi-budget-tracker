@@ -51,7 +51,7 @@ export function CurrencyComboBox() {
   const mutation = useMutation({
     mutationFn: UpdateUserCurrency,
     onSuccess: (data: UserSettings) => {
-      toast.success("Currency updated successfully 🥳", {
+      toast.success("Moeda definida com sucesso! 🥳", {
         id: "update-currency",
       });
 
@@ -60,18 +60,18 @@ export function CurrencyComboBox() {
       );
     },
     onError: (e) => {
-      toast.error("Something went wrong.", { id: "update-currency" });
+      toast.error("Algo deu errado.", { id: "update-currency" });
     },
   });
 
   const selectOption = useCallback(
     (currency: Currency | null) => {
       if (!currency) {
-        toast.error("Please select a currency.");
+        toast.error("Por favor, selecione uma moeda.");
         return;
       }
 
-      toast.loading("Updating currency...", { id: "update-currency" });
+      toast.loading("Alterando moeda...", { id: "update-currency" });
       mutation.mutate(currency.value);
     },
     [mutation]
@@ -90,7 +90,7 @@ export function CurrencyComboBox() {
               {selectedOption ? (
                 <>{selectedOption.label}</>
               ) : (
-                <>Set Currency</>
+                <>Defina a moeda</>
               )}
             </Button>
           </PopoverTrigger>
@@ -133,7 +133,7 @@ function OptionList({
 }) {
   return (
     <Command>
-      <CommandInput placeholder="Filter currency..." />
+      <CommandInput placeholder="Filtrar moedas..." />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup>
