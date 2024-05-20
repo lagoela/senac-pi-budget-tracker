@@ -92,7 +92,7 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
   initialCompareTo,
   onUpdate,
   align = 'end',
-  locale = 'pt-br',
+  locale = 'en-us',
   showCompare = false
 }): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)

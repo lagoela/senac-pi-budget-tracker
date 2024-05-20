@@ -121,7 +121,6 @@ function History({ userSettings }: { userSettings: UserSettings }) {
                         const monthStr =  date.toLocaleDateString("pt-BR", {
                           month: "long",
                         }).toString()
-
                         const correctMonthStr = monthStr.charAt(0).toUpperCase() + monthStr.slice(1)
 
                         return correctMonthStr;
@@ -189,7 +188,7 @@ function CustomTooltip({ active, payload, formatter }: any) {
       <TooltipRow
         formatter={formatter}
         label="Renda"
-        value={expense}
+        value={income}
         bgColor="bg-emerald-500"
         textColor="text-emerald-500"
       />
