@@ -113,7 +113,7 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                 type === "income" ? "text-emerald-500" : "text-red-500"
               )}
             >
-              {type}
+              {type === "income" ? "renda" : "despesa"}
             </span>
           </DialogTitle>
         </DialogHeader>
